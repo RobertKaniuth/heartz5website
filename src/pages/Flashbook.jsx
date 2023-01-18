@@ -1,5 +1,10 @@
 import React from "react";
+import Flashes from "../components/ImageGallery/ImageGallery";
 
-const Flashbook = () => <div>Here comes some Tattoo flash soon :)</div>;
+const Flashbook = () => (
+  <div>
+    <Flashes />
+  </div>
+);
 
 export default Flashbook;
