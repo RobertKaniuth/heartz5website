@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styles from "./contactform.module.css";
-import nodemailer from "nodemailer";
-require("dotenv").config();
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -24,31 +22,33 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const pronounsString = pronouns.join(", ");
+    const formData = { name, email, city, pronounsString, files, message };
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
+    fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
       },
-    });
-
-    // send mail with defined transport object
-    let info = await transporter.sendMail({
-      from: `"${name}" <${email}>`, // sender address
-      to: "receiver_email@example.com", // list of receivers
-      subject: "${city}", // Subject line
-      text: `Name: ${name}\nEmail: ${email}\nCity: ${city}\nPronouns: ${pronounsString}\nMessage: ${message}`, // plain text body
-      attachments: files, // add attachments
-    });
-
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
   return (
     <form className={styles.container}>
       <label className={styles.label}>
@@ -126,7 +126,7 @@ function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
         />
       </label>
-      <button className={styles.button} type="submit">
+      <button className={styles.button} type="submit" onClick={handleSubmit}>
         Send
       </button>
     </form>
