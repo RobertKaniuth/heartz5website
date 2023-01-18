@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./contactform.module.css";
+import nodemailer from "nodemailer";
+require("dotenv").config();
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -22,6 +24,31 @@ function ContactForm() {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const pronounsString = pronouns.join(", ");
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
+
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: `"${name}" <${email}>`, // sender address
+      to: "receiver_email@example.com", // list of receivers
+      subject: "${city}", // Subject line
+      text: `Name: ${name}\nEmail: ${email}\nCity: ${city}\nPronouns: ${pronounsString}\nMessage: ${message}`, // plain text body
+      attachments: files, // add attachments
+    });
+
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  };
   return (
     <form className={styles.container}>
       <label className={styles.label}>
