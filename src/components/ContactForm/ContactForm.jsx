@@ -24,16 +24,15 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const pronounsString = pronouns.join(", ");
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("city", city);
-    formData.append("pronouns", pronounsString);
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
-    }
+    formData.append("pronouns", pronouns);
     formData.append("message", message);
+    formData.append("files", files);
 
     fetch("http://localhost:5000/send-email", {
       method: "POST",
