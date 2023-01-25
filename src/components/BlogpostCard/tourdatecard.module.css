@@ -1,0 +1,19 @@
+.tour-date-announcement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tour-date-announcement img {
+  flex-basis: 40%;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.tour-date-announcement h3 {
+  margin: 0;
+}
