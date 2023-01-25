@@ -65,6 +65,7 @@ function ContactForm() {
           onChange={(e) => setName(e.target.value)}
         />
       </label>
+      <br />
       <label className={styles.label}>
         Email:
         <input
@@ -74,6 +75,7 @@ function ContactForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
+      <br />
       <label className={styles.label}>
         City:
         <input
@@ -83,6 +85,7 @@ function ContactForm() {
           onChange={(e) => setCity(e.target.value)}
         />
       </label>
+      <br />
       <label className={styles.label}>
         Pronouns:
         <br />
