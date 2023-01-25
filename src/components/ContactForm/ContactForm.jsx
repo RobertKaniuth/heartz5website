@@ -30,9 +30,11 @@ function ContactForm() {
     formData.append("name", name);
     formData.append("email", email);
     formData.append("city", city);
-    formData.append("pronouns", pronouns);
+    formData.append("pronouns", pronounsString);
     formData.append("message", message);
-    formData.append("files", files);
+    files.forEach((file) => {
+      formData.append("files", file, file.name);
+    });
 
     fetch("http://localhost:5000/send-email", {
       method: "POST",
