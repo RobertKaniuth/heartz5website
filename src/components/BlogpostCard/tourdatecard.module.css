@@ -1,19 +1,26 @@
-.tour-date-announcement {
+.tourDateAnnouncement {
+  background-position: center;
+  background-size: cover;
+  width: 800px;
+  height: 800px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  margin: 0 auto;
 }
 
-.tour-date-announcement img {
-  flex-basis: 40%;
-  margin-right: 20px;
-  border-radius: 10px;
+.tourDateAnnouncement h3 {
+  font-size: 54px;
+  color: white;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  margin: 5px;
 }
 
-.tour-date-announcement h3 {
+.tourDateAnnouncement p {
+  font-size: 42px;
+  color: white;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
