@@ -1,0 +1,26 @@
+.instructionsContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: darksalmon;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.instructionsList {
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+}
+
+.instructionsList li {
+  margin-bottom: 8px;
+}
