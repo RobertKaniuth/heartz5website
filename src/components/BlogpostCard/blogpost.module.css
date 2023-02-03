@@ -1,0 +1,37 @@
+.blogPostContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+}
+
+.blogPostTitle {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.blogPostText {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.blogPostImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.blogPostCarousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
