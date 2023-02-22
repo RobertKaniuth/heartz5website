@@ -21,7 +21,7 @@ const LandingPage = () => (
     />
     <BlogPost
       title="Zürich"
-      text="Here some Tattoos i made during my last Visit at Varg. unfortunately the weather made it extremely unpleasant to be outside so i havent really seen anything else then the Way from the Central Stattion to Varg and from the Studio to the Hotel. But thanks to my lovely Clients, Oscar and Oscars Father to get his third Tattoo by me. And special thaks to Coop to provide the only affordable Food in Zürich."
+      text="Here are some Tattoos I made during my last Visit to Varg. Unfortunately the weather made it extremely unpleasant to be outside, so I didn't really see anything else apart from the Central station and the walk from the Studio to the Hotel. However thanks to my lovely clients including Oscar and Oscar's Father, who came to get his third Tattoo by me. And special thaks to Coop for providing the only affordable food in Zürich."
       images={images}
     />
     ;
